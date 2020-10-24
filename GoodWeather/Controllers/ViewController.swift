@@ -14,9 +14,49 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var cityNameTextField: UITextField!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var humidityLabel: UILabel!
-
+    
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        cityNameTextField.rx.controlEvent(.editingDidEndOnExit)
+            .asObservable()
+            .map { self.cityNameTextField.text }
+            .subscribe(onNext: { value in
+                guard let city = value else { return }
+                guard !city.isEmpty else {
+                    self.displayWeather(nil)
+                    return
+                }
+                self.fetchWeather(by: city)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func displayWeather(_ weather: Weather?) {
+        guard let weather = weather else {
+            temperatureLabel.text = "🙈"
+            humidityLabel.text = "∅"
+            return
+        }
+        temperatureLabel.text = "\(weather.temp - 273.15) °C"
+        humidityLabel.text = "\(weather.humidity) 💦"
+    }
+    
+    private func fetchWeather(by city: String) {
+        guard let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
+            let url = URL.urlForWeatherAPI(city: cityEncoded) else {
+                return
+        }
+        let resource = Resource<WeatherResult>(url: url)
+        URLRequest.load(resource: resource)
+            .observeOn(MainScheduler.instance)
+            .catchErrorJustReturn(WeatherResult.empty)
+            .subscribe(onNext: { value in
+                let weather = value.main
+                self.displayWeather(weather)
+            }).disposed(by: disposeBag)
     }
 }
 

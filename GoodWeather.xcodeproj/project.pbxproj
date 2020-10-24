@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		67783E7A2538A36C006EC196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67783E792538A36C006EC196 /* Assets.xcassets */; };
 		67783E7D2538A36C006EC196 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67783E7B2538A36C006EC196 /* LaunchScreen.storyboard */; };
 		67783E8A2538A82C006EC196 /* WeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67783E892538A82C006EC196 /* WeatherResult.swift */; };
+		67783E8D2538AADD006EC196 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67783E8C2538AADD006EC196 /* URLRequest+Extensions.swift */; };
+		67957D47254438B400889031 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67957D46254438B400889031 /* URL+Extensions.swift */; };
 		8BB476067930196646681AF3 /* Pods_GoodWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B445FD7DDADE61B9D696C43E /* Pods_GoodWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		67783E7C2538A36C006EC196 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67783E7E2538A36C006EC196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67783E892538A82C006EC196 /* WeatherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResult.swift; sourceTree = "<group>"; };
+		67783E8C2538AADD006EC196 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
+		67957D46254438B400889031 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		687C2948806F611CD2E016A9 /* Pods-GoodWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodWeather.debug.xcconfig"; path = "Target Support Files/Pods-GoodWeather/Pods-GoodWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		B445FD7DDADE61B9D696C43E /* Pods_GoodWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85F165DB59BF9E9D51F282F /* Pods-GoodWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodWeather.release.xcconfig"; path = "Target Support Files/Pods-GoodWeather/Pods-GoodWeather.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,9 +79,10 @@
 			children = (
 				67783E842538A705006EC196 /* Application */,
 				67783E852538A709006EC196 /* Controllers */,
+				67783E8B2538AAC3006EC196 /* Extensions */,
 				67783E882538A737006EC196 /* Models */,
-				67783E862538A713006EC196 /* View */,
 				67783E872538A718006EC196 /* Supporting files */,
+				67783E862538A713006EC196 /* View */,
 			);
 			path = GoodWeather;
 			sourceTree = "<group>";
@@ -125,13 +130,21 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		67783E8B2538AAC3006EC196 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				67783E8C2538AADD006EC196 /* URLRequest+Extensions.swift */,
+				67957D46254438B400889031 /* URL+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DF6C5F9D1BC29D132EB29BDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				687C2948806F611CD2E016A9 /* Pods-GoodWeather.debug.xcconfig */,
 				C85F165DB59BF9E9D51F282F /* Pods-GoodWeather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -251,8 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				67783E752538A369006EC196 /* ViewController.swift in Sources */,
+				67957D47254438B400889031 /* URL+Extensions.swift in Sources */,
 				67783E8A2538A82C006EC196 /* WeatherResult.swift in Sources */,
 				67783E712538A369006EC196 /* AppDelegate.swift in Sources */,
+				67783E8D2538AADD006EC196 /* URLRequest+Extensions.swift in Sources */,
 				67783E732538A369006EC196 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
