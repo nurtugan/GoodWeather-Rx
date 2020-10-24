@@ -20,7 +20,6 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         cityNameTextField.rx.controlEvent(.editingDidEndOnExit)
             .asObservable()
             .map { self.cityNameTextField.text }
